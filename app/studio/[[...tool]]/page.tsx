@@ -8,7 +8,7 @@
  */
 
 import { NextStudio } from "next-sanity/studio";
-import config from "../../../sanity.config.mjs";
+import config from "../../../sanity.config.js";
 
 export const dynamic = "force-static";
 

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build && sanity build && npm run typegen",
+    "build": "SANITY_BASE_PATH=./sanity sanity schema extract --path=./sanity/extract.json && sanity typegen generate && next build",
     "start": "next start",
     "lint": "next lint",
     "predev": "npm run typegen",
