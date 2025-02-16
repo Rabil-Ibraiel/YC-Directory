@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build && sanity build",
     "start": "next start",
     "lint": "next lint",
     "predev": "npm run typegen",
@@ -14,6 +14,7 @@
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
     "@radix-ui/react-toast": "^1.2.6",
+    "@sanity/cli": "^3.75.1",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.75.0",
     "@tailwindcss/typography": "^0.5.16",
