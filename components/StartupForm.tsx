@@ -17,7 +17,7 @@ const StartupForm = () => {
   const [pitch, setPitch] = useState("");
   const route = useRouter();
 
-  async function handleFormSubmit(prevState: any, formData: FormData) {
+  async function handleFormSubmit(prevState: string, formData: FormData) {
     try {
       const formValues = {
         title: formData.get("title") as string,
