@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build && sanity build",
+    "build": "next build && sanity build && npm run typegen",
     "start": "next start",
     "lint": "next lint",
     "predev": "npm run typegen",
