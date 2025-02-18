@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  transpilePackages: ["lucide-react"],
+  experimental: {
+    esmExternals: true,
+  },
   typescript: {
     ignoreBuildErrors: true
   },
