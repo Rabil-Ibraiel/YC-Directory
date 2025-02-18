@@ -40,3 +40,4 @@ export const STARTUP_QUERY_BY_USER_ID = defineQuery(`*[_type=="startup" && autho
     author -> {_id, name, username, image, bio},
     image, views, category
 }`)
+

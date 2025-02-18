@@ -6,7 +6,7 @@ export const dataset = assertValue(
   'Missing environment variable: NEXT_PUBLIC_SANITY_DATASET'
 )
 
-export const token = process.env.SANITY_API_TOKEN
+export const token = process.env.DEV
 
 export const projectId = assertValue(
   process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,

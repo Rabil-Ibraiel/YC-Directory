@@ -6,16 +6,12 @@ import {
   USER_QUERY_BY_AUTHOR_ID,
 } from "@/sanity/lib/queries";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import React from "react";
 import { StartUpCardType } from "../../page";
 
 const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
   const session = await auth();
-  if (!session) {
-    return notFound();
-  }
   const user = await client.fetch(USER_QUERY_BY_AUTHOR_ID, { id });
   const startups = await client.fetch(STARTUP_QUERY_BY_USER_ID, { id });
 

@@ -13,6 +13,11 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
   const post = await client.fetch(STARTUP_QUERY, { id });
 
+  await client
+    .patch(post._id)
+    .set({ views: Number(post.views) + 1 })
+    .commit();
+
   const parsedPitch = md.render(post?.pitch || "");
 
   if (!post) notFound();
@@ -24,7 +29,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
         <p className="sub-heading">{post.description}</p>
         <p className="mt-4 font-semibold flex items-center gap-0.5 text-white/80">
           <EyeIcon />
-          <span>{post.views}</span>
+          <span>{Number(post.views) + 1}</span>
         </p>
       </section>
 
@@ -39,7 +44,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
         <div className="space-y-5 mt-10 max-w-4xl mx-auto">
           <div className="flex-between">
             <div className="flex items-center gap-2 mb-3">
-              <Link href={`/uesr/${post.author._id}`}>
+              <Link href={`/user/${post.author._id}`}>
                 <Image
                   src={post.author.image}
                   width={64}
@@ -49,7 +54,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
                 />
               </Link>
 
-              <Link href={`/uesr/${post.author._id}`}>
+              <Link href={`/user/${post.author._id}`}>
                 <div className="">
                   <p className="text-20-medium">{post.author.name}</p>
                   <p className="text-16-medium !text-black-300">

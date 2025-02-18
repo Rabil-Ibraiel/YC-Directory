@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache"
 import { writeClient } from "./sanity/lib/write-client"
-import { auth } from "./auth"
+import { auth, signIn, signOut } from "./auth"
 import slugify from "slugify"
 
 interface formDataType {
@@ -37,4 +37,13 @@ export async function createStartup(formData: formDataType) {
     revalidatePath("/")
 
     return startup._id
+}
+
+
+export async function handleLogin() {
+    await signIn("github");
+}
+
+export async function handleLogout() {
+    await signOut()
 }
